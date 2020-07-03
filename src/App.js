@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
-
+import NotFound404 from "./pages/NotFound/NotFound404";
 import "./App.css";
 
 function App() {
@@ -22,14 +22,19 @@ function App() {
             </ul>
 
             <hr />
-            <Route exact path="/">
-                <Home />
-            </Route>
-            <Route path="/about">
-                <About />
-            </Route>
-            <Route path="/contact">
-                <Contact />
+            <switch>
+                <Route exact path="/">
+                    <Home />
+                </Route>
+                <Route path="/about">
+                    <About />
+                </Route>
+                <Route path="/contact">
+                    <Contact />
+                </Route>
+            </switch>
+            <Route path="*">
+                <NotFound404 />
             </Route>
         </Router>
     );
