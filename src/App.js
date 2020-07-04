@@ -5,6 +5,7 @@ import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import NotFound404 from "./pages/NotFound/NotFound404";
 import "./App.css";
+import BlogPost from "./component/BlogPost/BlogPost";
 
 function App() {
     return (
@@ -19,6 +20,9 @@ function App() {
                 <li>
                     <Link to="/contact">Dashboard</Link>
                 </li>
+                <li>
+                    <Link to="/blogpost">Blogpost</Link>
+                </li>
             </ul>
 
             <hr />
@@ -31,6 +35,9 @@ function App() {
                 </Route>
                 <Route path="/contact">
                     <Contact />
+                </Route>
+                <Route path="/blogpost">
+                    <BlogPost />
                 </Route>
             </switch>
             <Route path="*">
