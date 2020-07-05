@@ -1,34 +1,40 @@
-import React, { Fragment } from "react";
+import React, { Fragment, Component } from "react";
 import Styled from "styled-components";
+import Post from "../Post/Post";
 
 const StyledHead = Styled.h1`
 background-color: pink;
 `;
-const Card = Styled.div`
-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-transition: 0.3s;
-width: 20%;
-margin-left: 20px;
-&:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-`;
-function BlogPost() {
-    return (
-        <Fragment>
-            <StyledHead>Blog Post</StyledHead>
-            <Card>
-                <div>Post</div>
-                <div className="image">
-                    <img src="https://placeimg.com/200/150/tech" alt="Tech" />
-                </div>
-                <div className="content">
-                    <p>Dummy title</p>
-                    <p>Body Here</p>
-                </div>
-            </Card>
-        </Fragment>
-    );
-}
 
-export default BlogPost;
+export default class BlogPost extends Component {
+    state = {
+        post: [],
+    };
+
+    componentDidMount() {
+        fetch("https://jsonplaceholder.typicode.com/posts")
+            .then((response) => response.json())
+            .then((json) => {
+                this.setState({
+                    post: json,
+                });
+            });
+    }
+    render() {
+        return (
+            <Fragment>
+                <StyledHead>Blog Post</StyledHead>
+
+                {this.state.post.map((post) => {
+                    return (
+                        <Post
+                            key={post.id}
+                            title={post.title}
+                            desc={post.body}
+                        />
+                    );
+                })}
+            </Fragment>
+        );
+    }
+}
