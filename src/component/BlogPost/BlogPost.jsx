@@ -10,7 +10,7 @@ export default class BlogPost extends Component {
     state = {
         post: [],
     };
-
+    // i use fake api post
     componentDidMount() {
         fetch("https://jsonplaceholder.typicode.com/posts")
             .then((response) => response.json())

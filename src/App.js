@@ -2,10 +2,10 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
-import Contact from "./pages/Contact/Contact";
 
 import "./App.css";
 import BlogPost from "./component/BlogPost/BlogPost";
+import FakeApi from "./component/FakeApi/FakeApi";
 
 function App() {
     return (
@@ -18,10 +18,10 @@ function App() {
                     <Link to="/about">About</Link>
                 </li>
                 <li>
-                    <Link to="/contact">Dashboard</Link>
+                    <Link to="/contact">Fake Api Function</Link>
                 </li>
                 <li>
-                    <Link to="/blogpost">Blogpost</Link>
+                    <Link to="/blogpost">Fake Api Class</Link>
                 </li>
             </ul>
 
@@ -34,7 +34,7 @@ function App() {
                     <About />
                 </Route>
                 <Route path="/contact">
-                    <Contact />
+                    <FakeApi />
                 </Route>
                 <Route path="/blogpost">
                     <BlogPost />
