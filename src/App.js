@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
-import NotFound404 from "./pages/NotFound/NotFound404";
+
 import "./App.css";
 import BlogPost from "./component/BlogPost/BlogPost";
 
@@ -40,9 +40,6 @@ function App() {
                     <BlogPost />
                 </Route>
             </switch>
-            <Route path="*">
-                <NotFound404 />
-            </Route>
         </Router>
     );
 }
